@@ -15,7 +15,6 @@ export default makeStyles((theme) => ({
         height: '2em',
         backgroundColor: '#f9fbe7',
         borderRadius: '0.75em',
-        display: 'flex',        
-        
+        display: 'flex',
     }
 }))
