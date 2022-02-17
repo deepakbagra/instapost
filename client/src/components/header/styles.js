@@ -19,7 +19,13 @@ export default makeStyles((theme) => ({
     navLinks: {
         justifyContent: 'space-evenly',                      
     },
-   
-        
-    
+    modal: {
+       backgroundColor: 'rgba(0,0,0,0.7)',
+    },
+    xButton: {
+        position: 'absolute',
+        top: '0%',
+        left: '95%',
+        color: 'white',
+    }
 }))

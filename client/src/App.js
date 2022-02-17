@@ -1,13 +1,20 @@
-import { Container } from '@material-ui/core';
+
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './components/home/Home';
 import Header from './components/header/Header';
-import Posts from './components/Posts';
 
 function App() {
+  
+  
   return (
-    <Container >
+    <Router>
       <Header />
-      <Posts />
-    </Container>
+      <Routes>
+        <Route exact path='/' element={<Home />}></Route>
+      </Routes>
+    </Router>
   );
 }
 
