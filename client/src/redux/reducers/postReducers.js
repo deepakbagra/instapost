@@ -8,6 +8,9 @@ const postReducers = (posts=[], action) => {
         case Actions.CREATE:
             return [...posts, action.payload];
         
+        case Actions.DELETE:
+            return posts.filter(post => post._id !== action.payload);
+        
         default :
         return posts;
     }

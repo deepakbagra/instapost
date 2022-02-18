@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Paper, InputBase, Typography, TextField, MenuItem } from '@material-ui/core';
+import { AppBar, IconButton, Paper, InputBase, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import HomeIcon from '@material-ui/icons/Home';
 import AddIcon from '@material-ui/icons/Add';
@@ -34,8 +34,8 @@ const Header = () => {
         </IconButton>
         <Modal className={classes.modal} open={modalOpen}  onClose={handleModalClose}>
           <>
-            <IconButton fontSize='' onClick={handleModalClose} className={classes.xButton} type='submit'><CancelIcon fontSize='large'/></IconButton>
-            <PostForm onClick={handleModalClose}/>
+            <IconButton onClick={handleModalClose} className={classes.xButton} type='submit'><CancelIcon fontSize='large'/></IconButton>
+            <PostForm />
           </>
           
         </Modal>

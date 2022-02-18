@@ -22,3 +22,15 @@ export const createPost = async (req, res) => {
         res.status(404).json( {message: error.message});
     }
 }
+
+export const deletePost = async (req, res) => {
+    const id = req.params.id;
+    
+    try {
+        await Posts.findByIdAndRemove(id);
+        
+        res.json({message: 'Post deleted succcessfully'});
+    } catch (error) {
+        res.status(404).json( {message: error.message});
+    }
+}

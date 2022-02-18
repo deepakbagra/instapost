@@ -5,5 +5,10 @@ export default makeStyles((theme) => ({
         paddingTop: '57%',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         backgroundBlendMode: 'darken',
-    }
+    },
+    priceTag: {
+        fontSize: '2rem',
+        fontWeight: '700',
+    },
+    
 }))

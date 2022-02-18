@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
     item: String,
-    defect: String,
+    detail: String,
+    price: String,
     file: String,
     likes: {
         type: [String],

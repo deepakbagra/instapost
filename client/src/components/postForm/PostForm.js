@@ -7,12 +7,17 @@ import { useDispatch } from 'react-redux';
 import { createPost } from '../../redux/actions/postActions';
 
 const PostForm = () => {    
-    const [postData, setPostData] = useState({ item: '',defect: '',file: '' });
+    const [postData, setPostData] = useState({
+        item: '',
+        detail: '',
+        price: '',
+        file: '',
+    });
     const classes = useStyles();
     const dispatch = useDispatch();
 
     const clear = () => {
-        setPostData({ item: '', defect: '', file: '' });
+        setPostData({ item: '', detail: '', price: '', file: '' });
         
     }
 
@@ -43,11 +48,19 @@ const PostForm = () => {
                         onChange={handleChange}
                     />
                     <TextField className={classes.form}
-                        name='defect'
-                        label='Item Defect'
+                        name='detail'
+                        label='Detail'
                         variant='outlined'
                         fullWidth
-                        value={postData.defect}
+                        value={postData.detail}
+                        onChange={handleChange}
+                    />
+                    <TextField className={classes.form}
+                        name='price'
+                        label='Price'
+                        variant='outlined'
+                        fullWidth
+                        value={postData.price}
                         onChange={handleChange}
                     />
                     <Typography className={classes.img}>Upload an image file</Typography>
@@ -63,8 +76,7 @@ const PostForm = () => {
                     color='primary'
                     type='sumbit'
                     size='small'
-                    fullWidth
-                    //onClick={onClick}
+                    fullWidth                    
                     > Sumbit
                 </Button>
             </form>
