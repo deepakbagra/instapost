@@ -10,5 +10,16 @@ export default makeStyles((theme) => ({
         fontSize: '2rem',
         fontWeight: '700',
     },
+    modal: {
+        backgroundColor: 'rgba(255,255,255,0.7)',
+    },
+    box: {
+        height: '30%',
+        width: '40%',
+        margin: '15% 30%',
+        backgroundColor: 'white',
+        borderRadius: '1em'
+    },
     
+        
 }))

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {
   Card, CardActions, CardContent,
-  CardMedia, Button, Typography, IconButton
+  CardMedia, Button, Typography, Box
 } from '@material-ui/core';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
@@ -9,8 +9,6 @@ import useStyles from './styles';
 import Modal from '@material-ui/core/Modal';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import CancelIcon from '@material-ui/icons/Cancel';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
 import { deletePost } from '../../redux/actions/postActions';
@@ -43,8 +41,21 @@ const Post = ({ post }) => {
               more detail ...
             </Typography>
           </Button>
-          <Modal>
-          <IconButton onClick={handleModalClose} className={classes.xButton} type='submit'><CancelIcon fontSize='small'/></IconButton>
+          <Modal open={modalOpen} onClose={handleModalClose} className={classes.modal}>
+            
+              <Card style={{width: '50%', margin:'20%'}}>
+                <CardContent>
+                  <Typography variant='body2' >
+                    {post.detail}
+                  </Typography>                  
+                </CardContent>
+                <CardActions>
+                  <Button color='primary' onClick={handleModalClose} >
+                      close
+                  </Button>
+                </CardActions>
+              </Card>
+            
           </Modal>
         </CardContent>
         <CardActions>
