@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   main: {    
     justifyContent: 'center',
-    display: 'flex'
+    display: 'flex',
   },
   paper: {
     marginTop: theme.spacing(8),
@@ -11,8 +11,9 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2),
-    maxWidth: '50%'
+    
   },
+    
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
