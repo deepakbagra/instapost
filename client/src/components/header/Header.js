@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import PostForm from '../postForm/PostForm';
+import Post from '../posts/Post';
 
 const Header = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -37,6 +38,7 @@ const Header = () => {
     dispatch({ type: 'LOGOUT' });
     navigate('/');
     setUser(null);
+    <Post disableTags={true} />
   }
 
   useEffect(() => {
@@ -70,14 +72,13 @@ const Header = () => {
           {user ? (
             <div className={classes.profile}>
               <Avatar className={classes.purple} alt={user.result.name} src={user.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-              {/* <Typography className={classes.userName} variant='h6'>{user.result.name}</Typography> */}
-              <Button variant='inherit' onClick={logout} className={classes.auth} color='secondary'>Logout</Button>
+              <Button variant='text' onClick={logout} className={classes.auth} color='secondary'>Logout</Button>
             </div>
             ) : (
               <> 
-                <Button className={classes.auth} component={Link} to='/auth/signin' variant='inherit' color='primary'>Sign In</Button>
+                <Button className={classes.auth} component={Link} to='/auth/signin' variant='text' color='primary'>Sign In</Button>
                 |
-                <Button className={classes.auth} component={Link} to='/auth/signup' variant='inherit' color='primary'>Sign Up</Button>
+                <Button className={classes.auth} component={Link} to='/auth/signup' variant='text' color='primary'>Sign Up</Button>
               </>  
             )
           }

@@ -4,7 +4,7 @@ import {
   CardMedia, Button, Typography, IconButton
 } from '@material-ui/core';
 import moment from 'moment';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import Modal from '@material-ui/core/Modal';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -13,56 +13,62 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon  from '@material-ui/icons/FavoriteBorderOutlined';
 import EditIcon from '@material-ui/icons/Edit';
+import Skeleton from '@mui/material/Skeleton';
 
 import { deletePost, likePost } from '../../redux/actions/postActions';
 import PostForm from '../postForm/PostForm';
 
+ 
 
-const Post = ({ post, setCurrentId }) => {
+const Post = ({ post, disableTags }) => {
   
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalOpenEdit, setModalOpenEdit] = useState(false);
-  const [isDisabled, setIsdisabled] = useState(true);
+  const [modalOpenEdit, setModalOpenEdit] = useState(false);  
+
   const user = JSON.parse(localStorage.getItem('profile'));
+ 
+  const classes = useStyles();
+  const dispatch = useDispatch();
+
   
   const Likes = () => {
-    if (post.likes.length > 0) {
+    const likeCounts = post.likes.length;
+
+    if (likeCounts > 0) {
       return post.likes.find(
         (like) => like === (user?.result?.googleId || user?.result?._id))
         ? (
           <>
             <FavoriteOutlinedIcon  style={{color:'#3f51b5'}} fontSize='small'/>&nbsp;
-            {post.likes.length > 2 ?
-              `You and ${post.likes.length - 1} others`
-              : `${post.likes.length}`}
+            {post.likes.length > 1 ?
+              <div className={classes.likes}>
+                You and {likeCounts - 1} {likeCounts === 2 ? 'other' : 'others'}
+              </div>
+              : `${likeCounts}`}
           </>
         ) : (
           <>
             <FavoriteBorderOutlinedIcon style={{color:'black'}} fontSize='small' />&nbsp;
-            {post.likes.length} </>
+            {likeCounts} </>
         )
     };
-
     return <><FavoriteBorderOutlinedIcon style={{color:'black'}} fontSize='small' />&nbsp;</>;
   }
-
-  useEffect(() => {
+  
+  const setActions = () => {
     if (user?.result?.googleId === post?.creatorId || user?.result?._id === post?.creatorId)
-      setIsdisabled(prev => !prev);
-  }, [user?.result?.googleId, post?.creatorId, user?.result?._id]); 
-        
- 
+      return false;
+    else
+      return true;
+  }
+
   //Modal toggle settings for 'show more..' tag
   const handleModalOpen = () => { setModalOpen(true) };
   const handleModalClose = () => { setModalOpen(false) };
-
   
   //Modal toggle settings for edit tag
   const handleModalOpenEdit = () => { setModalOpenEdit(true) };
-  const handleModalCloseEdit = () => { setModalOpenEdit(false) };
-
-  const classes = useStyles();
-  const dispatch = useDispatch();
+  const handleModalCloseEdit = () => { setModalOpenEdit(false) };  
   
   const handleEditChange = () => {
     dispatch({ type: 'CURRENT_ID', payload: post._id})
@@ -70,7 +76,7 @@ const Post = ({ post, setCurrentId }) => {
  
     return (
       <Card className={classes.card} >
-        <CardMedia className={classes.img} image={post.file} />
+        {post.file ? (<CardMedia className={classes.img} image={post.file} alt={post.item} />) : <Skeleton sx={{ height: 140 }} animation="wave" variant="rectangular" />}
              
         <CardContent>
           <Typography gutterBottom style={{fontSize:'.9rem', fontWeight:'bold', marginLeft:'3%'}}>
@@ -110,7 +116,7 @@ const Post = ({ post, setCurrentId }) => {
         </CardContent>
         <CardActions style={{justifyContent:'center'}} className={classes.actions}>
           {                      
-            <Button className={classes.btn} disabled={isDisabled} size='small' color='secondary' onClick={() => dispatch(deletePost(post._id))}>
+            <Button className={classes.btn} disabled={setActions()} size='small' color='secondary' onClick={() => dispatch(deletePost(post._id))}>
               <DeleteIcon fontSize='small' />
             </Button>
           }
@@ -119,7 +125,7 @@ const Post = ({ post, setCurrentId }) => {
           </Button>
           <div>
             {              
-              <Button size='small' disabled={isDisabled} onClick={handleEditChange}>
+              <Button size='small' disabled={setActions()} onClick={handleEditChange}>
                 <EditIcon className={classes.btn} onClick={handleModalOpenEdit} size='small' style={{fontSize:'.9rem'}} />
               </Button>
             }

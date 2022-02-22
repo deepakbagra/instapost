@@ -27,6 +27,10 @@ export default makeStyles((theme) => ({
         left: '95%',
         color: 'white',
     },
+    likes: {
+        textTransform: 'none',
+        fontSize: '0.6rem'
+    }
     
    
 }))
