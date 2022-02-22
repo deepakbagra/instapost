@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Posts from '../models/postSchema.js';
 
 export const getPosts = async (req, res) => {
@@ -10,10 +11,11 @@ export const getPosts = async (req, res) => {
     }
 }
 
-export const createPost = async (req, res) => {
+export const createPost = async (req, res) => {    
     const post = req.body;
-    const newPost = new Posts({ ...post, createdAt: new Date().toISOString() });
-    console.log('post: ', post);
+    
+    const newPost = new Posts({ ...post, creatorId: req.userId, postedAt: new Date().toISOString() });
+    console.log('new Post:', newPost);
     try {
         await newPost.save();
         
@@ -23,14 +25,50 @@ export const createPost = async (req, res) => {
     }
 }
 
-export const deletePost = async (req, res) => {
-    const id = req.params.id;
+export const updatePost = async (req, res) => {   
+    const post = req.body; 
+    const { id: _id } = req.params;
+
+    console.log('updatedPost: ', post);
     
-    try {
-        await Posts.findByIdAndRemove(id);
-        
-        res.json({message: 'Post deleted succcessfully'});
-    } catch (error) {
-        res.status(404).json( {message: error.message});
+    if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with this id');
+    
+    const updatedPost = await Posts.findByIdAndUpdate(_id, post, { new: true });
+
+   
+    res.json(updatedPost);    
+}
+
+export const deletePost = async (req, res) => { 
+    const id = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with this id');
+
+    await Posts.findByIdAndRemove(id);
+
+    res.json({ message: 'Post deleted successfully' });    
+}
+
+export const likePost = async (req, res) => {
+    const id = req.params.id;
+
+    if (!req.userId) return res.json({ message: 'Unauthenticated!' });
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No post with this id');
+
+    const post = await Posts.findById(id);
+   
+    const index = post.likes.findIndex(id => id === req.userId);
+
+    console.log('index:', index);
+
+    if (index === -1) {
+        post.likes.push(req.userId);        
+    } else {
+        post.likes = post.likes.filter((id) => id!== String(req.userId));
     }
+
+    const updatedPost = await Posts.findByIdAndUpdate(id, post, { new: true });
+
+    res.json(updatedPost);
 }

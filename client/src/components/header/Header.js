@@ -19,7 +19,16 @@ const Header = () => {
  
   const [modalOpen, setModalOpen] = useState(false);
   
-  const handleModalOpen = () => { setModalOpen(true) };
+  const handleModalOpen = () => {
+    if (!user) {
+      alert('Please Sign in to post your Ad');
+    }
+    else {
+      setModalOpen(true);
+      dispatch({ type: 'CURRENT_ID', payload: null });
+    }
+  }
+
   const handleModalClose = () => { setModalOpen(false) };
 
   const classes = useStyles();
@@ -38,7 +47,7 @@ const Header = () => {
 
   return (
       <AppBar className={classes.appBar} position='static' color='inherit'>
-        <Typography variant='h5' >𝖎𝖓𝖘𝖙𝖆𝖕𝖔𝖘𝖙</Typography>
+        <Typography variant='h5' >reject-shop</Typography>
         <Paper  comonent='form' autoComplete='off' noValidate className={classes.searchBar}>
             <InputBase style={{padding: '0.25em'}} placeholder='Search' />
             <IconButton style={{padding: '0.2em'}} type='submit' aria-label='search'>

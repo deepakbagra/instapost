@@ -8,8 +8,14 @@ const postReducers = (posts=[], action) => {
         case Actions.CREATE:
             return [...posts, action.payload];
         
+        case Actions.UPDATE:
+            return posts.map(post => post._id === action.payload._id ? action.payload : post);    
+        
         case Actions.DELETE:
             return posts.filter(post => post._id !== action.payload);
+        
+        case Actions.LIKE:
+            return posts.map(post => post._id === action.payload._id ? action.payload : post);
         
         default :
         return posts;

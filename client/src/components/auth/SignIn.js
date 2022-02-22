@@ -56,6 +56,7 @@ const SignIn = () => {
     return (
         <Container component='main' maxWidth='xs' className={classes.main}>
             <Paper className={classes.paper} elevation={3}>
+            
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
@@ -118,6 +119,7 @@ const SignIn = () => {
                     onFailure={googleFailure}
                     cookiePolicy='single_host_origin'
                 />
+                
             </Paper>
         </Container>
     )

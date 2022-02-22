@@ -1,12 +1,15 @@
 import express from 'express';
-import { getPosts, createPost, deletePost } from '../controller/posts.js';
+import { getPosts, createPost, updatePost, deletePost, likePost } from '../controller/posts.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
 // routing to http://localhost:9000/posts
 
 router.get('/', getPosts);
-router.post('/', createPost);
-router.delete('/:id', deletePost);
+router.post('/', auth, createPost);
+router.patch('/:id', auth, updatePost);
+router.delete('/:id', auth, deletePost);
+router.patch('/:id/likepost', auth, likePost);
 
 export default router;

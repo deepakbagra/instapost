@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
@@ -6,6 +6,7 @@ import Posts from '../posts/Posts';
 import { listPosts } from '../../redux/actions/postActions';
 
 const Home = () => {
+   
     const dispatch = useDispatch();
 
     useEffect(() => {

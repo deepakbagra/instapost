@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
         paddingTop: '57%',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         backgroundBlendMode: 'darken',
+        
     },
     priceTag: {
         fontSize: '2rem',
@@ -20,6 +21,12 @@ export default makeStyles((theme) => ({
         backgroundColor: 'white',
         borderRadius: '1em'
     },
+    xButton: {
+        position: 'absolute',
+        top: '0%',
+        left: '95%',
+        color: 'white',
+    },
     
-        
+   
 }))

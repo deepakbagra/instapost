@@ -5,8 +5,7 @@ import React from 'react';
 import Post from './Post';
 
 const Posts = () => {
-    const posts = useSelector(state => state.posts);
-    console.log('posts: ',posts);
+    const posts = useSelector(state => state.posts);    
   return (
     !posts.length ? <CircularProgress /> : (
             <Grid container alignItems='stretch' spacing={2}>

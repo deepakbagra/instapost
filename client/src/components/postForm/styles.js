@@ -25,15 +25,16 @@ export default makeStyles((theme) => ({
     },
     img: {
         fontSize: "0.8rem",
-        marginLeft: '5%'
+        marginLeft: '5%',
+        
     },
     file: {
-        marginTop: '5%', 
+        marginTop: '1%', 
         marginLeft: '5%'
     },
     button: {
-        marginTop: '5%',
-        borderRadius: '0'
+        marginTop: '4%',
+        borderRadius: '1em'
     }
     
    
