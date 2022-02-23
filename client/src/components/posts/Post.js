@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   Card, CardActions, CardContent,
   CardMedia, Button, Typography, IconButton
@@ -18,19 +18,19 @@ import Skeleton from '@mui/material/Skeleton';
 import { deletePost, likePost } from '../../redux/actions/postActions';
 import PostForm from '../postForm/PostForm';
 
- 
-
 const Post = ({ post, disableTags }) => {
   
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpenEdit, setModalOpenEdit] = useState(false);  
 
   const user = JSON.parse(localStorage.getItem('profile'));
+
+  
  
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  
+  const authData = useSelector((state) => state.auth.authData);
+    
   const Likes = () => {
     const likeCounts = post.likes.length;
 
@@ -62,6 +62,7 @@ const Post = ({ post, disableTags }) => {
       return true;
   }
 
+  
   //Modal toggle settings for 'show more..' tag
   const handleModalOpen = () => { setModalOpen(true) };
   const handleModalClose = () => { setModalOpen(false) };
@@ -120,7 +121,7 @@ const Post = ({ post, disableTags }) => {
               <DeleteIcon fontSize='small' />
             </Button>
           }
-          <Button className={classes.btn} size='small' disabled={!user?.result} color='primary' onClick={() => dispatch(likePost(post._id))}>
+          <Button className={classes.btn} size='small' disabled={!authData} color='primary' onClick={() => dispatch(likePost(post._id))}>
             <Likes />
           </Button>
           <div>

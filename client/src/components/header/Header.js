@@ -1,7 +1,5 @@
 import { AppBar, IconButton, Paper, InputBase, Typography, Button, Avatar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import HomeIcon from '@material-ui/icons/Home';
-import AddIcon from '@material-ui/icons/Add';
 import CancelIcon from '@material-ui/icons/Cancel';
 import useStyles from './styles';
 import Modal from '@material-ui/core/Modal';
@@ -56,13 +54,10 @@ const Header = () => {
                 <SearchIcon fontSize='small' />
             </IconButton>
         </Paper>
-        <div className={classes.navLinks}>
-          <IconButton style={{padding: '0.2em'}} type='submit' aria-label='home'>
-            <HomeIcon />
-          </IconButton>
-          <IconButton onClick={handleModalOpen} style={{padding: '0.2em'}} type='submit' aria-label='add'>
-            <AddIcon />
-          </IconButton>
+        <div className={classes.navLinks}>          
+          <Button className={classes.auth} color='primary' onClick={handleModalOpen} style={{padding: '0.2em'}} >
+            Post Ad
+          </Button>
           <Modal className={classes.modal} open={modalOpen}  onClose={handleModalClose}>
           <>
             <IconButton onClick={handleModalClose} className={classes.xButton} type='submit'><CancelIcon fontSize='large'/></IconButton>

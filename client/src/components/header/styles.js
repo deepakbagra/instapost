@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
         color: 'white',
     },
     auth: {
-        fontSize: '0.72em',
+        fontSize: '0.72em',        
         textTransform: 'none',
         margin: '0em',
         fontWeight: 'bold'
