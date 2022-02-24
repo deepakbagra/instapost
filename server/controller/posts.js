@@ -15,7 +15,7 @@ export const createPost = async (req, res) => {
     const post = req.body;
     
     const newPost = new Posts({ ...post, creatorId: req.userId, postedAt: new Date().toISOString() });
-    console.log('new Post:', newPost);
+   
     try {
         await newPost.save();
         
@@ -29,8 +29,6 @@ export const updatePost = async (req, res) => {
     const post = req.body; 
     const { id: _id } = req.params;
 
-    console.log('updatedPost: ', post);
-    
     if (!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No post with this id');
     
     const updatedPost = await Posts.findByIdAndUpdate(_id, post, { new: true });
@@ -59,8 +57,6 @@ export const likePost = async (req, res) => {
     const post = await Posts.findById(id);
    
     const index = post.likes.findIndex(id => id === req.userId);
-
-    console.log('index:', index);
 
     if (index === -1) {
         post.likes.push(req.userId);        

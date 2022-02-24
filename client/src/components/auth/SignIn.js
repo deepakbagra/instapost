@@ -39,8 +39,6 @@ const SignIn = () => {
         const result = res?.profileObj;
         const token = res?.tokenId;
 
-        console.log('Google success response',res);
-
         try {
             dispatch({ type: 'AUTH', payload: { result, token }});
 

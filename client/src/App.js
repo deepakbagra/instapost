@@ -18,6 +18,7 @@ function App() {
         <Route exact path='/auth/signin' element={<SignIn />}></Route>
         <Route exact path='/auth/signup' element={<SignUp />}></Route>
       </Routes>
+      
     </Router>
   );
 }

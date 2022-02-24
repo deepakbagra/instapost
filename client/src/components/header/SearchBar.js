@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
 import { InputBase, Paper, IconButton } from '@material-ui/core';
@@ -19,14 +19,23 @@ const SearchBar = () => {
 
         setInput(queryText);
 
-        dispatch({ type: 'SEARCH', payload: queryText });
+      dispatch({ type: 'SEARCH', payload: queryText });      
+          
     };
 
-    const clearInput = () => {
-      setInput('');
+  const clearInput = useCallback(() => {
 
-      dispatch(listPosts());
-    }
+    setInput('');
+
+    dispatch(listPosts());
+
+  },[dispatch]);
+  
+  useEffect(() => {
+
+    if (input === '') clearInput();
+    
+  }, [clearInput, input]);
 
   return (
     <Paper comonent='form' autoComplete='off' noValidate className={classes.searchBar}>

@@ -22,8 +22,6 @@ const postReducers = (posts=[], action) => {
             const filteredPosts = action.payload !== '' ? posts.filter((post) =>
                 post.item?.toLowerCase().includes(action.payload?.toLowerCase())) : posts;
             
-            console.log('filteredPosts', filteredPosts);
-                
             if (filteredPosts.length === 0) return [];
             
             else return filteredPosts;

@@ -9,8 +9,7 @@ const auth = async (req, res, next) => {
 
         if (token && isCustomAuth) {
             decodedData = jwt.verify(token, 'test');
-            req.userId = decodedData?.id;
-            console.log('decoded data in middleware auth: ', decodedData);
+            req.userId = decodedData?.id;            
             
         } else {
             decodedData = jwt.decode(token);
