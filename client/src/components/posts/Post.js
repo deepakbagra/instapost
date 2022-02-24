@@ -18,7 +18,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { deletePost, likePost } from '../../redux/actions/postActions';
 import PostForm from '../postForm/PostForm';
 
-const Post = ({ post, disableTags }) => {
+const Post = ({ post }) => {
   
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpenEdit, setModalOpenEdit] = useState(false);  

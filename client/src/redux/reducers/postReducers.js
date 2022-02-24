@@ -17,6 +17,17 @@ const postReducers = (posts=[], action) => {
         case Actions.LIKE:
             return posts.map(post => post._id === action.payload._id ? action.payload : post);
         
+        case Actions.SEARCH:
+            
+            const filteredPosts = action.payload !== '' ? posts.filter((post) =>
+                post.item?.toLowerCase().includes(action.payload?.toLowerCase())) : posts;
+            
+            console.log('filteredPosts', filteredPosts);
+                
+            if (filteredPosts.length === 0) return [];
+            
+            else return filteredPosts;
+
         default :
         return posts;
     }

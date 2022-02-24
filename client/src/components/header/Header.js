@@ -1,14 +1,17 @@
 import { AppBar, IconButton, Paper, InputBase, Typography, Button, Avatar } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+
 import CancelIcon from '@material-ui/icons/Cancel';
+import HomeIcon from '@material-ui/icons/Home';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import useStyles from './styles';
 import Modal from '@material-ui/core/Modal';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import decode from 'jwt-decode';
 
 import PostForm from '../postForm/PostForm';
-import Post from '../posts/Post';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
@@ -35,11 +38,20 @@ const Header = () => {
   const logout = () => {    
     dispatch({ type: 'LOGOUT' });
     navigate('/');
-    setUser(null);
-    <Post disableTags={true} />
+    setUser(null);    
   }
 
   useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+     
+      if (decodedToken.exp * 1000 < new Date().getTime()) {
+        logout();
+      }      
+    }
+
     setUser(JSON.parse(localStorage.getItem('profile')));
 
   }, [navigate]);
@@ -47,15 +59,13 @@ const Header = () => {
 
   return (
       <AppBar className={classes.appBar} position='static' color='inherit'>
-        <Typography variant='h5' >reject-shop</Typography>
+        <Typography variant='h6' >reject-shop</Typography>
         <Paper  comonent='form' autoComplete='off' noValidate className={classes.searchBar}>
-            <InputBase style={{padding: '0.25em'}} placeholder='Search' />
-            <IconButton style={{padding: '0.2em'}} type='submit' aria-label='search'>
-                <SearchIcon fontSize='small' />
-            </IconButton>
+            <SearchBar />
         </Paper>
-        <div className={classes.navLinks}>          
-          <Button className={classes.auth} color='primary' onClick={handleModalOpen} style={{padding: '0.2em'}} >
+        <div className={classes.navLinks}>
+          <IconButton component={Link} to='/'><HomeIcon /></IconButton>
+          <Button className={classes.auth} onClick={handleModalOpen} style={{padding: '0.2em'}} >
             Post Ad
           </Button>
           <Modal className={classes.modal} open={modalOpen}  onClose={handleModalClose}>
@@ -66,14 +76,14 @@ const Header = () => {
           </Modal>         
           {user ? (
             <div className={classes.profile}>
-              <Avatar className={classes.purple} alt={user.result.name} src={user.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+              <Avatar className={classes.purple} alt={user?.result?.name} src={user.imageUrl}>{user?.result?.name.charAt(0)}</Avatar>
               <Button variant='text' onClick={logout} className={classes.auth} color='secondary'>Logout</Button>
             </div>
             ) : (
               <> 
-                <Button className={classes.auth} component={Link} to='/auth/signin' variant='text' color='primary'>Sign In</Button>
-                |
-                <Button className={classes.auth} component={Link} to='/auth/signup' variant='text' color='primary'>Sign Up</Button>
+                <Button className={classes.auth} component={Link} to='/auth/signin' variant='text' >Sign In</Button>
+                <Typography className={classes.divider}>|</Typography>
+                <Button className={classes.auth} component={Link} to='/auth/signup' variant='text' >Sign Up</Button>
               </>  
             )
           }

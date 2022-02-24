@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 import { CircularProgress, Grid } from '@material-ui/core';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Post from './Post';
 
 const Posts = () => {
-    const posts = useSelector(state => state.posts);    
+  const posts = useSelector(state => state.posts); 
+ 
   return (
     !posts.length ? <CircularProgress /> : (
             <Grid container alignItems='stretch' spacing={2}>

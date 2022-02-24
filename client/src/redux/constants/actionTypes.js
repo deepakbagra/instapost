@@ -4,6 +4,7 @@ export const UPDATE = 'UPDATE';
 export const DELETE = 'DELETE';
 export const CURRENT_ID = 'CURRENT_ID';
 export const LIKE = 'LIKE';
+export const SEARCH = 'SEARCH';
 
 export const AUTH = 'AUTH';
 export const LOGOUT = 'LOGOUT';

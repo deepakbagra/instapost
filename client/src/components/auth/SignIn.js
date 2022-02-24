@@ -24,7 +24,7 @@ const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        dispatch(signIn(formData, navigate)); 
+        dispatch(signIn(formData, navigate));
     }
 
     const handleChange = (e) => {

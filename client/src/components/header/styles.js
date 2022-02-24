@@ -12,10 +12,15 @@ export default makeStyles((theme) => ({
         height: '3rem', 
     },
     searchBar: {
-        height: '2em',
+        height: '1.8rem',
         backgroundColor: '#f9fbe7',
         borderRadius: '0.75em',
-        display: 'flex',
+        display: 'flex',        
+        alignItems: 'center',
+    },
+    searchInput: {
+        padding: '0.3rem',
+        marginLeft: '0.5rem',
     },
     navLinks: {
         justifyContent: 'space-evenly',
@@ -34,7 +39,10 @@ export default makeStyles((theme) => ({
         fontSize: '0.72em',        
         textTransform: 'none',
         margin: '0em',
-        fontWeight: 'bold'
+        fontWeight: 'bold',        
+    },
+    divider: {
+        margin: 'auto'
     },
     purple: {
         color: theme.palette.getContrastText(deepPurple[500]),

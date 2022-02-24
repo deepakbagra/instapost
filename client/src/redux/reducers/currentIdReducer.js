@@ -1,4 +1,5 @@
-import { CURRENT_ID } from '../constants/actionTypes'
+import { CURRENT_ID } from '../constants/actionTypes';
+
 const currentIdReducer = (state = null, action) => {
     switch (action.type) {
         case CURRENT_ID:
