@@ -18,6 +18,11 @@ app.use(cors());
 app.use('/posts', postRoutes);
 app.use('/users', userRoutes);
 
+// welcome message on hosting API on Heroku
+app.get('/', (req, res) => {
+    res.send('Hello to instapost API');
+})
+
 // set-up mongodb data base
 const PORT = process.env.PORT || 9000;
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:9000' });
+const API = axios.create({ baseURL: 'https://deepakwebtech-instapost.herokuapp.com' });
 
 // Axios interceptor for Authorization before making API calls
 
