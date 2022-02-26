@@ -2,16 +2,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   main: {    
-    justifyContent: 'center',
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      width: '80%',
+  }  
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(12),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: theme.spacing(2),
-    
+    padding: theme.spacing(2),    
   },
     
   root: {

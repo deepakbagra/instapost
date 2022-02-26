@@ -38,7 +38,7 @@ const SignUp = () => {
     }
 
     return (
-        <Container component='main' className={classes.main} maxWidth='xs'>
+        <Container component='main' className={classes.main} maxWidth='xs' style={{width:'70%'}}>
             <Paper className={classes.paper}>
                 <Avatar className={classes.avatar}>
                   <LockOutlinedIcon />

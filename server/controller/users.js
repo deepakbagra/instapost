@@ -1,7 +1,12 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
 import User from '../models/userSchema.js';
+
+dotenv.config();
+
+const SECRET = process.env.TOKEN_SECRET;
 
 export const signIn = async (req, res) => {
     const { email, password } = req.body;
@@ -15,7 +20,7 @@ export const signIn = async (req, res) => {
 
         if (!isPasswordCorrect) return res.send('Invalid credentials');
 
-        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, 'test', { expiresIn: '2h'});
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id}, SECRET, { expiresIn: '2h'});
 
         res.status(200).json({ result: existingUser, token});
     } catch (error) {
@@ -39,7 +44,7 @@ export const signUp = async (req, res) => {
 
         const result = await User.create({ email, password: hashedPassword, name: name});
 
-       const token = jwt.sign({ email: result.email, id: result._id}, 'test', { expiresIn: '1h'});
+       const token = jwt.sign({ email: result.email, id: result._id}, SECRET, { expiresIn: '1h'});
         
         res.status(200).json({ result, token});
     } catch (error) {   

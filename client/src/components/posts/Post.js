@@ -23,9 +23,7 @@ const Post = ({ post }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpenEdit, setModalOpenEdit] = useState(false);  
 
-  const user = JSON.parse(localStorage.getItem('profile'));
-
-  
+  const user = JSON.parse(localStorage.getItem('profile'));  
  
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -76,11 +74,11 @@ const Post = ({ post }) => {
   }
  
     return (
-      <Card className={classes.card} >
+      <Card >
         {post.file ? (<CardMedia className={classes.img} image={post.file} alt={post.item} />) : <Skeleton sx={{ height: 140 }} animation="wave" variant="rectangular" />}
              
         <CardContent>
-          <Typography gutterBottom style={{fontSize:'.9rem', fontWeight:'bold', marginLeft:'3%'}}>
+          <Typography gutterBottom style={{fontSize:'.7rem', fontWeight:'bold', marginLeft:'3%'}}>
             {post.item}
           </Typography>
           <Typography gutterBottom className={classes.priceTag}>
@@ -92,7 +90,7 @@ const Post = ({ post }) => {
               more detail ...
             </Typography>            
           </Button>
-          <Typography style={{fontSize: '0.7rem', color:'grey', marginLeft:'3%', fontWeight:'bold'}}>
+          <Typography className={classes.name} >
             Posted By: {post.name}
           </Typography> 
           <Typography style={{fontSize:'0.7rem', color:'grey', marginLeft:'3%'}}>
@@ -115,7 +113,7 @@ const Post = ({ post }) => {
             
           </Modal>
         </CardContent>
-        <CardActions style={{justifyContent:'center'}} className={classes.actions}>
+        <CardActions style={{justifyContent:'center', height:'3rem'}} >
           {                      
             <Button className={classes.btn} disabled={setActions()} size='small' color='secondary' onClick={() => dispatch(deletePost(post._id))}>
               <DeleteIcon fontSize='small' />

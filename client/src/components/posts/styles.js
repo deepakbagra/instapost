@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
+    
     img: {
         paddingTop: '57%',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -8,8 +9,15 @@ export default makeStyles((theme) => ({
         
     },
     priceTag: {
-        fontSize: '2rem',
+        fontSize: '1.6rem',
         fontWeight: '700',
+        margin: '0'
+    },
+    name: {
+        fontSize: '0.7rem',
+        color: 'grey',
+        marginLeft: '3%',
+        fontWeight: 'bold'    
     },
     modal: {
         backgroundColor: 'rgba(255,255,255,0.7)',
@@ -29,8 +37,6 @@ export default makeStyles((theme) => ({
     },
     likes: {
         textTransform: 'none',
-        fontSize: '0.6rem'
-    }
-    
-   
+        fontSize: '0.6rem',
+    }  
 }))

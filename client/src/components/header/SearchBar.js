@@ -34,16 +34,16 @@ const SearchBar = () => {
   useEffect(() => {
 
     if (input === '') clearInput();
-    
+
   }, [clearInput, input]);
 
   return (
     <Paper comonent='form' autoComplete='off' noValidate className={classes.searchBar}>
           <InputBase className={classes.searchInput} value={input} onChange={handleSearch} placeholder='search item' />
           { input === '' ?
-              <SearchIcon style={{ padding: '0.2rem' }} fontSize='small' />
+              <SearchIcon className={classes.searchIcon} />
               : 
-              <IconButton onClick={clearInput} > <CloseIcon color='primary'/></IconButton>             
+              <IconButton onClick={clearInput}> <CloseIcon className={classes.closeIcon} /></IconButton>             
            } 
     </Paper>
   )
