@@ -1,8 +1,10 @@
 import React from 'react';
+import useStyles from './styles';
 
 const BrandName = () => {
+  const classes = useStyles();
   return (
-    <div component='text' style={{ fontSize: '1rem', fontWeight:'bold', marginLeft:'0.4rem'}}>
+    <div component='text' className={classes.brand} >
       rejectshop
     </div>
   )

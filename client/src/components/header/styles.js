@@ -89,12 +89,19 @@ export default makeStyles((theme) => ({
         marginTop: '5%',
         [theme.breakpoints.down('xs')]: {
             width: '1.2em',
-            height: '1.2em',
-            
+            height: '1.2em',            
         }
     },
     profile: {
         display: 'flex',       
         width: '100px',
-      },
+    },
+    brand: {
+        fontSize: '1rem',
+        fontWeight: 'bold',
+        marginLeft: '0.4rem',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '0.8rem',            
+        }
+    }
 }))
