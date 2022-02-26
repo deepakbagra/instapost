@@ -16,7 +16,7 @@ import LogoutMenu from './LogoutMenu';
 
 const Header = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  const [screenSize, setScreenSize] = useState(900);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

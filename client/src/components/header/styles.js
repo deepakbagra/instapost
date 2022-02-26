@@ -48,8 +48,9 @@ export default makeStyles((theme) => ({
         }
     },
     navLinks: {
-        justifyContent: 'space-evenly',
-        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',        
     },
     modal: {
        backgroundColor: 'rgba(0,0,0,0.7)',

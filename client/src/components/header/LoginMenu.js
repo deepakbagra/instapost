@@ -26,9 +26,11 @@ export default function LoginMenu() {
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}        
+        onClick={handleClick}
+        
+        
       >
-       <LockOpenIcon style={{fontSize:'1.2rem'}} /> 
+        <LockOpenIcon style={{ fontSize: '1.2rem', padding:'0' }} /> 
       </Button>
       <Menu
         id="basic-menu"
