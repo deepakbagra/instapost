@@ -17,7 +17,7 @@ export default makeStyles((theme) => ({
         fontSize: '0.7rem',
         color: 'grey',
         marginLeft: '3%',
-        fontWeight: 'bold'    
+        fontWeight: 'bold'
     },
     modal: {
         backgroundColor: 'rgba(255,255,255,0.7)',
@@ -38,5 +38,10 @@ export default makeStyles((theme) => ({
     likes: {
         textTransform: 'none',
         fontSize: '0.6rem',
-    }  
+    },
+    btn: {
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '1rem'
+        }
+    }
 }))

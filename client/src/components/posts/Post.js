@@ -115,17 +115,17 @@ const Post = ({ post }) => {
         </CardContent>
         <CardActions style={{justifyContent:'center', height:'3rem'}} >
           {                      
-            <Button className={classes.btn} disabled={setActions()} size='small' color='secondary' onClick={() => dispatch(deletePost(post._id))}>
-              <DeleteIcon fontSize='small' />
+            <Button className={classes.btn} disabled={setActions()} color='secondary' onClick={() => dispatch(deletePost(post._id))}>
+              <DeleteIcon />
             </Button>
           }
-          <Button className={classes.btn} size='small' disabled={!authData} color='primary' onClick={() => dispatch(likePost(post._id))}>
+          <Button className={classes.btn} disabled={!authData} color='primary' onClick={() => dispatch(likePost(post._id))}>
             <Likes />
           </Button>
           <div>
             {              
-              <Button size='small' disabled={setActions()} onClick={handleEditChange}>
-                <EditIcon className={classes.btn} onClick={handleModalOpenEdit} size='small' style={{fontSize:'.9rem'}} />
+              <Button className={classes.btn}  disabled={setActions()} onClick={handleEditChange}>
+                <EditIcon onClick={handleModalOpenEdit} />
               </Button>
             }
             <Modal className={classes.modal} open={modalOpenEdit} onClose={handleModalCloseEdit}>

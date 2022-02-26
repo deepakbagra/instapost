@@ -53,7 +53,7 @@ const SignIn = () => {
 
     return (
         <Container component='main' maxWidth='xs' className={classes.main}>
-            <Paper className={classes.paper} elevation={3}>
+            <Paper className={classes.paper} elevation={5}>
             
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
@@ -117,6 +117,9 @@ const SignIn = () => {
                     onFailure={googleFailure}
                     cookiePolicy='single_host_origin'
                 />
+                <Button onClick={() => navigate('/')} size='small' fullWidth variant='contained' color='secondary'>
+                    close
+                </Button>
                 
             </Paper>
         </Container>

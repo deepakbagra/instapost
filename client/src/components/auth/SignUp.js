@@ -38,8 +38,8 @@ const SignUp = () => {
     }
 
     return (
-        <Container component='main' className={classes.main} maxWidth='xs' style={{width:'70%'}}>
-            <Paper className={classes.paper}>
+        <Container component='main' className={classes.main} maxWidth='xs'>
+            <Paper className={classes.paper} elevation={5}>
                 <Avatar className={classes.avatar}>
                   <LockOutlinedIcon />
                 </Avatar>
@@ -106,8 +106,11 @@ const SignUp = () => {
                     </Grid>
                     <Button type='submit' fullWidth variant='contained' color='primary' className={classes.submit} >
                         Sign Up
-                    </Button>
+                    </Button>                    
                 </form>
+                <Button onClick={() => navigate('/')} size='small' fullWidth variant='contained' color='secondary'>
+                    close
+                </Button>
               
             </Paper>
         </Container>
