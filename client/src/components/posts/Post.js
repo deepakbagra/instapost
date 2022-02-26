@@ -78,7 +78,7 @@ const Post = ({ post }) => {
         {post.file ? (<CardMedia className={classes.img} image={post.file} alt={post.item} />) : <Skeleton sx={{ height: 140 }} animation="wave" variant="rectangular" />}
              
         <CardContent>
-          <Typography gutterBottom style={{fontSize:'.7rem', fontWeight:'bold', marginLeft:'3%'}}>
+          <Typography gutterBottom style={{fontSize:'.9rem', fontWeight:'bold', marginLeft:'3%'}}>
             {post.item}
           </Typography>
           <Typography gutterBottom className={classes.priceTag}>
