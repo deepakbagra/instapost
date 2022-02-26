@@ -108,7 +108,7 @@ const SignUp = () => {
                         Sign Up
                     </Button>                    
                 </form>
-                <Button onClick={() => navigate('/')} size='small' fullWidth variant='contained' color='secondary'>
+                <Button onClick={() => navigate('/')} style={{fontSize:'0.7em', fontWeight:'bold'}} fullWidth >
                     close
                 </Button>
               

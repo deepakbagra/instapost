@@ -76,7 +76,7 @@ const Header = () => {
             <SearchBar />
         </Paper>
         <div className={classes.navLinks}>
-        <IconButton component={Link} to='/'><HomeIcon style={{fontSize:'1.2rem'}}/></IconButton>
+        <IconButton component={Link} to='/'><HomeIcon style={{fontSize:'1.5rem'}}/></IconButton>
           <Button className={classes.auth} onClick={handleModalOpen} style={{padding: '0.2em'}} >
             Post Ad
           </Button>

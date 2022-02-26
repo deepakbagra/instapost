@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: '3rem', 
+        height: '3.5rem', 
     },
     searchBar: {
         height: '1.8rem',
@@ -71,7 +71,7 @@ export default makeStyles((theme) => ({
         }
     },
     auth: {
-        fontSize: '0.72rem',        
+        fontSize: '0.75rem',        
         textTransform: 'none',
         margin: '0em',
         fontWeight: 'bold',        

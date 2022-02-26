@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Avatar, Paper, Grid, TextField, IconButton, InputAdornment, Container, Button } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { GoogleLogin } from 'react-google-login';
@@ -117,9 +118,11 @@ const SignIn = () => {
                     onFailure={googleFailure}
                     cookiePolicy='single_host_origin'
                 />
-                <Button onClick={() => navigate('/')} size='small' fullWidth variant='contained' color='secondary'>
+                <Button component={Link} to='/auth/signup' size='small' fullWidth variant='contained' color='primary'>Not already sign up ? Sign up here </Button>
+                <Button onClick={() => navigate('/')} style={{fontSize:'0.7em', fontWeight:'bold'}} fullWidth >
                     close
                 </Button>
+                
                 
             </Paper>
         </Container>
