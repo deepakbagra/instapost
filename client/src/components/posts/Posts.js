@@ -8,7 +8,7 @@ const Posts = () => {
   const posts = useSelector(state => state.posts); 
  
   return (
-    !posts.length ? <div style={{height: '20rem'}}><CircularProgress /> </div> : (
+    !posts.length ? <div style={{height: '24rem'}}><CircularProgress /> </div> : (
       <Grid container alignItems='stretch' spacing={4} style={{ padding: '1.2em', }} >
               {posts.map((post) => (
                   <Grid item
