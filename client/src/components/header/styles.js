@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: '3.5rem', 
+        height: '4rem', 
     },
     searchBar: {
         height: '1.8rem',
@@ -71,7 +71,7 @@ export default makeStyles((theme) => ({
         }
     },
     auth: {
-        fontSize: '0.75rem',        
+        fontSize: '0.85rem',        
         textTransform: 'none',
         margin: '0em',
         fontWeight: 'bold',        
@@ -98,7 +98,7 @@ export default makeStyles((theme) => ({
         width: '100px',
     },
     brand: {
-        fontSize: '1rem',
+        fontSize: '1.2rem',
         fontWeight: 'bold',
         marginLeft: '0.4rem',
         [theme.breakpoints.down('xs')]: {

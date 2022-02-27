@@ -5,7 +5,7 @@ const BrandName = () => {
   const classes = useStyles();
   return (
     <div component='text' className={classes.brand} >
-      rejectshop
+      UsedItem
     </div>
   )
 }
