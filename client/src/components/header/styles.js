@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
-    appBar: {              
+    appBar: {
         marginBottom: '2rem',
         display: 'flex',
         flexDirection: 'row',
@@ -10,36 +10,48 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         height: '4rem',
         [theme.breakpoints.between('md', 'lg')]: {
-            height: '8rem',          
+            height: '8rem',
         }
     },
     searchBar: {
         height: '1.8rem',
         backgroundColor: '#f9fbe7',
         borderRadius: '0.75em',
-        display: 'flex',        
+        display: 'flex',
         alignItems: 'center',
         [theme.breakpoints.down('xs')]: {
-            height: '1.5rem',
-            width: '6.3rem',
+            height: '1.3rem',
+        },
+        [theme.breakpoints.between('xs', 'sm')]: {
+            height: '1.5rem',           
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
+            height: '1.8rem',           
         },
         [theme.breakpoints.between('md', 'lg')]: {
-            height: '2rem',
-            width: '10rem',          
+            height: '2.2rem',                      
         }
     },
     searchInput: {
-        padding: '0.3rem',
+        padding: '0.5rem',
         marginLeft: '0.5rem',
         fontSize: '1rem',
         [theme.breakpoints.down('xs')]: {
-            fontSize: '0.7rem',
+            fontSize: '0.4rem',
             marginLeft: '0.1rem'
+        },
+        [theme.breakpoints.between('xs', 'sm')]: {
+            fontSize: '0.5rem',
+            marginLeft: '0.2rem'          
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
+            fontSize: '0.7rem',
+            marginLeft: '0.3rem'          
         },
         [theme.breakpoints.between('md', 'lg')]: {
             fontSize: '0.9rem',
-            marginLeft: '0.3rem'          
-        }        
+            marginLeft: '0.4rem'          
+        } ,       
     },
     searchIcon: {
         padding: '0.6rem',
@@ -48,8 +60,16 @@ export default makeStyles((theme) => ({
             padding: '0.4rem',
             fontSize: '0.9rem',
         },
-        [theme.breakpoints.between('md', 'lg')]: {
+        [theme.breakpoints.between('xs', 'sm')]: {
+            padding: '0.5rem',
+            fontSize: '1rem',      
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
             padding: '0.6rem',
+            fontSize: '1.1rem',         
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            padding: '0.7rem',
             fontSize: '1.2rem',
         },
     },
@@ -58,7 +78,15 @@ export default makeStyles((theme) => ({
         fontSize:'1.2rem',
         [theme.breakpoints.down('xs')]: {
             padding: '0',
-            fontSize:'0.95rem',
+            fontSize:'0.85rem',
+        },
+        [theme.breakpoints.between('xs', 'sm')]: {
+            padding: '0',
+            fontSize:'0.95rem',    
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
+            padding: '0',
+            fontSize:'1rem',         
         },
         [theme.breakpoints.between('md', 'lg')]: {
             padding: '0',
