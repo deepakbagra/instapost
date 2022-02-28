@@ -16,7 +16,11 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.between('sm', 'md')]: {
             margin: 'auto',
             width: '90%'
-        },        
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            margin: 'auto',
+            width: '100%'
+        },
     },
     actions: {
         
