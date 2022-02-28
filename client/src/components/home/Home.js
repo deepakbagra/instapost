@@ -15,7 +15,7 @@ const Home = () => {
     }, [dispatch]);
 
     return (
-        <Container  >
+        <Container maxWidth='md' style={{ padding: '0' }} >
             <Posts />
             <Footer />
         </Container>

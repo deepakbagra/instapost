@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 import Posts from '../models/postSchema.js';
 
-export const getPosts = async (req, res) => {
+export const getPosts = async (req, res) => {    
+    
     try {
-        const posts = await Posts.find();
+        const posts = await Posts.find();        
         
         res.status(200).json(posts);
     } catch (error) {

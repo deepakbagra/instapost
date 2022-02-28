@@ -14,6 +14,7 @@ import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon  from '@material-ui/icons/FavoriteBorderOutlined';
 import EditIcon from '@material-ui/icons/Edit';
 import Skeleton from '@mui/material/Skeleton';
+import ChatIcon from '@material-ui/icons/Chat';
 
 import { deletePost, likePost } from '../../redux/actions/postActions';
 import PostForm from '../postForm/PostForm';
@@ -37,7 +38,7 @@ const Post = ({ post }) => {
         (like) => like === (user?.result?.googleId || user?.result?._id))
         ? (
           <>
-            <FavoriteOutlinedIcon  style={{color:'#3f51b5'}} fontSize='small'/>&nbsp;
+            <FavoriteOutlinedIcon />&nbsp;
             {post.likes.length > 1 ?
               <div className={classes.likes}>
                 You and {likeCounts - 1} {likeCounts === 2 ? 'other' : 'others'}
@@ -46,7 +47,7 @@ const Post = ({ post }) => {
           </>
         ) : (
           <>
-            <FavoriteBorderOutlinedIcon style={{color:'black'}} fontSize='small' />&nbsp;
+            <FavoriteBorderOutlinedIcon className={classes.likeBtn} style={{color:'black'}} />&nbsp;
             {likeCounts} </>
         )
     };
@@ -74,19 +75,19 @@ const Post = ({ post }) => {
   }
  
     return (
-      <Card >
+      <Card className={classes.card}>
         {post.file ? (<CardMedia className={classes.img} image={post.file} alt={post.item} />) : <Skeleton sx={{ height: 140 }} animation="wave" variant="rectangular" />}
              
         <CardContent>
-          <Typography gutterBottom style={{fontSize:'.9rem', fontWeight:'bold', marginLeft:'3%'}}>
+          <Typography gutterBottom className={classes.item} >
             {post.item}
           </Typography>
           <Typography gutterBottom className={classes.priceTag}>
             <AttachMoneyIcon />
             {post.price}
           </Typography>
-          <Button onClick={handleModalOpen} style={{textTransform: 'none'}}>
-            <Typography color='primary' style={{fontSize:'.9rem', fontWeight:'bold'}}>
+          <Button onClick={handleModalOpen}>
+            <Typography color='primary' className={classes.more} >
               more detail ...
             </Typography>            
           </Button>
@@ -113,21 +114,21 @@ const Post = ({ post }) => {
             
           </Modal>
         </CardContent>
-        <CardActions style={{justifyContent:'center', height:'3rem'}} >
-          {                      
+        <CardActions className={classes.actions} >
+                                
             <Button className={classes.btn} disabled={setActions()} color='secondary' onClick={() => dispatch(deletePost(post._id))}>
-              <DeleteIcon />
+              <DeleteIcon className={classes.btn} />
             </Button>
-          }
-          <Button className={classes.btn} disabled={!authData} color='primary' onClick={() => dispatch(likePost(post._id))}>
+          
+          <Button disabled={!authData} color='primary' onClick={() => dispatch(likePost(post._id))}>
             <Likes />
           </Button>
           <div>
-            {              
-              <Button className={classes.btn}  disabled={setActions()} onClick={handleEditChange}>
-                <EditIcon onClick={handleModalOpenEdit} />
+                         
+              <Button className={classes.btn} disabled={setActions()} onClick={handleEditChange}>
+                <EditIcon className={classes.btn} onClick={handleModalOpenEdit} />
               </Button>
-            }
+            
             <Modal className={classes.modal} open={modalOpenEdit} onClose={handleModalCloseEdit}>
               <>
               <IconButton onClick={handleModalCloseEdit} className={classes.xButton} type='submit'><CancelIcon fontSize='large'/></IconButton>
@@ -135,6 +136,9 @@ const Post = ({ post }) => {
               </>
             </Modal>
           </div>
+          <Button className={classes.btn}  disabled={setActions()} onClick={handleEditChange}>
+                <ChatIcon className={classes.btn} onClick={handleModalOpenEdit} />
+              </Button>
         </CardActions>
       </Card>
   );
