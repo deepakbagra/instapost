@@ -8,7 +8,10 @@ export default makeStyles((theme) => ({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: '4rem', 
+        height: '4rem',
+        [theme.breakpoints.between('md', 'lg')]: {
+            height: '8rem',          
+        }
     },
     searchBar: {
         height: '1.8rem',
@@ -19,6 +22,10 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.down('xs')]: {
             height: '1.5rem',
             width: '6.3rem',
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            height: '2rem',
+            width: '10rem',          
         }
     },
     searchInput: {
@@ -28,15 +35,23 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.down('xs')]: {
             fontSize: '0.7rem',
             marginLeft: '0.1rem'
-        }
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            fontSize: '0.9rem',
+            marginLeft: '0.3rem'          
+        }        
     },
     searchIcon: {
         padding: '0.6rem',
-        fontSize:'1.2rem',
+        fontSize: '1.2rem',
         [theme.breakpoints.down('xs')]: {
             padding: '0.4rem',
-            fontSize:'0.9rem',
-        }        
+            fontSize: '0.9rem',
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            padding: '0.6rem',
+            fontSize: '1.2rem',
+        },
     },
     closeIcon: {
         padding: '0.6rem',
@@ -44,7 +59,11 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.down('xs')]: {
             padding: '0',
             fontSize:'0.95rem',
-        }
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            padding: '0',
+            fontSize:'1.2rem',
+        },
     },
     navLinks: {
         justifyContent: 'center',
@@ -67,13 +86,25 @@ export default makeStyles((theme) => ({
         },
         [theme.breakpoints.between('sm', 'md')]: {
             left: '94.3%',
-        }
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            left: '95%',
+        },
     },
     auth: {
         fontSize: '0.85rem',        
         textTransform: 'none',
         margin: '0em',
-        fontWeight: 'bold',        
+        fontWeight: 'bold',
+        [theme.breakpoints.between('xs', 'sm')]: {
+            fontSize: '0.8rem',
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
+            fontSize: '0.9rem',
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            fontSize: '1rem',
+        },
     },
     authMenu: {
         fontSize: '0.72rem',        
