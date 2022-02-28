@@ -9,8 +9,14 @@ export default makeStyles((theme) => ({
         justifyContent: 'space-around',
         alignItems: 'center',
         height: '4rem',
+        [theme.breakpoints.between('xs', 'sm')]: {
+            height: '4rem',           
+        },
+        [theme.breakpoints.between('sm', 'md')]: {
+            height: '5rem',           
+        },
         [theme.breakpoints.between('md', 'lg')]: {
-            height: '8rem',
+            height: '6rem',
         }
     },
     searchBar: {
@@ -23,10 +29,10 @@ export default makeStyles((theme) => ({
             height: '1.3rem',
         },
         [theme.breakpoints.between('xs', 'sm')]: {
-            height: '1.5rem',           
+            height: '1.9rem',           
         },
         [theme.breakpoints.between('sm', 'md')]: {
-            height: '1.8rem',           
+            height: '2rem',           
         },
         [theme.breakpoints.between('md', 'lg')]: {
             height: '2.2rem',                      
