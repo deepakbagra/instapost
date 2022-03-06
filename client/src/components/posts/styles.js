@@ -23,7 +23,7 @@ export default makeStyles((theme) => ({
         },
     },
     actions: {
-        
+        height:'3rem'
     },
     img: {
         paddingTop: '57%',

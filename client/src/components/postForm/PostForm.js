@@ -53,6 +53,7 @@ const PostForm = () => {
             clear();
           }
     }
+    
     return (
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate onSubmit={handleSubmit}>

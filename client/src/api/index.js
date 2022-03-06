@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-//const url = 'http://localhost:9000';
+const url = 'http://localhost:9000';
 
-const url = 'https://deepakwebtech-instapost.herokuapp.com';
+//const url = 'https://deepakwebtech-instapost.herokuapp.com';
 
 const API = axios.create({ baseURL: url });
 

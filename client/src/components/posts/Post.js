@@ -18,17 +18,20 @@ import ChatIcon from '@material-ui/icons/Chat';
 
 import { deletePost, likePost } from '../../redux/actions/postActions';
 import PostForm from '../postForm/PostForm';
+import ChatPage from '../chat/ChatPage';
+
 
 const Post = ({ post }) => {
   
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalOpenEdit, setModalOpenEdit] = useState(false);  
+  const [modalOpenEdit, setModalOpenEdit] = useState(false);
+  const [modalOpenChat, setModalOpenChat] = useState(false);  
 
   const user = JSON.parse(localStorage.getItem('profile'));  
  
   const classes = useStyles();
   const dispatch = useDispatch();
-  const authData = useSelector((state) => state.auth.authData);
+   
     
   const Likes = () => {
     const likeCounts = post.likes.length;
@@ -68,7 +71,11 @@ const Post = ({ post }) => {
   
   //Modal toggle settings for edit tag
   const handleModalOpenEdit = () => { setModalOpenEdit(true) };
-  const handleModalCloseEdit = () => { setModalOpenEdit(false) };  
+  const handleModalCloseEdit = () => { setModalOpenEdit(false) }; 
+  
+  //Modal toggle settings for Chat tag
+  const handleModalOpenChat = () => { setModalOpenChat(true) };
+  const handleModalCloseChat = () => { setModalOpenChat(false) }; 
   
   const handleEditChange = () => {
     dispatch({ type: 'CURRENT_ID', payload: post._id})
@@ -110,9 +117,9 @@ const Post = ({ post }) => {
                       close
                   </Button>
                 </CardActions>
-              </Card>
-            
+              </Card>            
           </Modal>
+          
         </CardContent>
         <CardActions className={classes.actions} >
                                 
@@ -120,7 +127,7 @@ const Post = ({ post }) => {
               <DeleteIcon className={classes.btn} />
             </Button>
           
-          <Button disabled={!authData} color='primary' onClick={() => dispatch(likePost(post._id))}>
+          <Button disabled={!user} color='primary' onClick={() => dispatch(likePost(post._id))}>
             <Likes />
           </Button>
           <div>
@@ -136,9 +143,18 @@ const Post = ({ post }) => {
               </>
             </Modal>
           </div>
-          <Button className={classes.btn}  disabled={setActions()} onClick={handleEditChange}>
-                <ChatIcon className={classes.btn} onClick={handleModalOpenEdit} />
-              </Button>
+          <div>
+            <Button disabled={!user} className={classes.btn} onClick={handleModalOpenChat} >
+                <ChatIcon className={classes.btn} onClick={handleModalOpenChat} />
+            </Button>
+            <Modal className={classes.modal} open={modalOpenChat} onClose={handleModalCloseChat}>
+              <>             
+                <ChatPage name={post.name}  handleModalCloseChat={handleModalCloseChat} />
+              </>
+              
+            </Modal>
+            
+          </div>
         </CardActions>
       </Card>
   );

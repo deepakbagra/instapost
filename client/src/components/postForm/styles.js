@@ -16,8 +16,7 @@ export default makeStyles((theme) => ({
         fontSize: '0.9rem',
         fontWeight: 'bold',
         marginLeft: '30%',
-        margin: '1em'
-       
+        margin: '1em'       
     },
     form: {
         marginBottom: '.9rem',
