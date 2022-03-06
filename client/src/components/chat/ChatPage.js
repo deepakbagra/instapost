@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Paper, Button, Typography, TextField } from '@material-ui/core';
 import useStyle from './Styles';
 import io from 'socket.io-client';
 import ChatBox from './ChatBox';
 
-const ENDPOINT = 'localhost:9000';
+//const ENDPOINT = 'localhost:9000';
+const ENDPOINT = 'https://deepakwebtech-instapost.herokuapp.com';
 
 const socket = io.connect(ENDPOINT);
 

@@ -4,7 +4,7 @@ import {
   CardMedia, Button, Typography, IconButton
 } from '@material-ui/core';
 import moment from 'moment';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import Modal from '@material-ui/core/Modal';
 import DeleteIcon from '@material-ui/icons/Delete';
