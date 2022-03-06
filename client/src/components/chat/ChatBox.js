@@ -1,5 +1,5 @@
 import { Typography, TextField, Paper, Button, Divider } from '@material-ui/core';
-import ScrollToBottom from 'react-scroll-to-bottom';
+import ScrollableFeed from 'react-scrollable-feed'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import React, { useState, useEffect } from 'react';
 import useStyles from './Styles';
@@ -41,12 +41,17 @@ const ChatBox = ({ name, socket, room, onClick }) => {
                     Hello {name}, please chat now.
                 </Typography>
             <Divider />                
-        
+            <ScrollableFeed>
             <div className={classes.chatBody}>
-                    {chatList.map((chats) => {
-                        return <h5>{chats.sender} : {chats.message}</h5>
+                    {chatList.map((chats, index) => {
+                        return (
+                           
+                            <h5 key={index}>{chats.sender} : {chats.message}</h5>
+                            
+                        )
                 })}
-            </div>
+                </div>
+            </ScrollableFeed>
           <div className={classes.chatFooter}>
             <TextField className={classes.inputChatBox} size='small'
             
