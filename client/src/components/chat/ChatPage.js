@@ -8,7 +8,7 @@ import ChatBox from './ChatBox';
 const ENDPOINT = 'https://deepakwebtech-instapost.herokuapp.com';
 
 const socket = io.connect(ENDPOINT);
-
+  
 const user = JSON.parse(localStorage.getItem('profile'));
 const name = user?.result?.name;
 
