@@ -5,22 +5,26 @@ import io from 'socket.io-client';
 import ChatBox from './ChatBox';
 
 //const ENDPOINT = 'localhost:9000';
-const ENDPOINT = 'https://deepakwebtech-instapost.herokuapp.com';
+const ENDPOINT = '//deepakwebtech-instapost.herokuapp.com';
 
-const socket = io.connect(ENDPOINT);
+const socket = io.connect(ENDPOINT, { secure: true, reconnection: true, rejectUnauthorized: false });
   
-const user = JSON.parse(localStorage.getItem('profile'));
-const name = user?.result?.name;
+socket.on("connect_error", (err) => {
+  console.log(`connect_error due to ${err.message}`);
+});
+
 
 const ChatPage = (props) => {
   
   const [room, setRoom] = useState('');
   const [showChat, setShowChat] = useState(false);
 
+  
+
   const classes = useStyle();  
   
   const joinRoom = () => {
-    if (name !== '' && room !== '') {
+    if (room !== '') {
       socket.emit('join_room', room);
       setShowChat(true);
       
@@ -54,7 +58,7 @@ const ChatPage = (props) => {
         </Paper>
       )
         : (
-          <ChatBox socket={socket} room={room} name={name} onClick={props.handleModalCloseChat} />
+          <ChatBox socket={socket} room={room} onClick={props.handleModalCloseChat} />
         )
       }
       

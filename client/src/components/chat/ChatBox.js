@@ -5,9 +5,13 @@ import React, { useState, useEffect } from 'react';
 import useStyles from './Styles';
 
 
-const ChatBox = ({ name, socket, room, onClick }) => { 
+const ChatBox = ({ socket, room, onClick }) => { 
+    
     const [currentMessage, setCurrentMessage] = useState('');
     const [chatList, setChatList] = useState([]);
+
+    const user = JSON.parse(localStorage.getItem('profile'));
+    const name = user?.result?.name;
 
     const classes = useStyles();
 

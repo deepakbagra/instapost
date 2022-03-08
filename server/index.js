@@ -9,16 +9,19 @@ import ChatServer from './chatServer.js';
 import http from 'http';
 import { Server } from 'socket.io';
 
-//const ENDPOINT = 'http://localhost:3001';
-const ENDPOINT = 'https://useditemshop.com';
+const ENDPOINT = "http://localhost:3001";
+
+//const ENDPOINT = 'https://useditemshop.com';
 
 const app = express();
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: ENDPOINT,
-        methods: ['GET', 'POST'],    
+        origin: '*',
+        methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+        credentials: true,
+        
     },
 });
 
