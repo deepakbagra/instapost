@@ -111,14 +111,18 @@ const SignIn = () => {
                             startIcon={<GoogleIcon />}
                             variant='contained'
                         >
-                            Google Sign In
+                            Sign In
                         </Button>
                     )}
                     onSuccess={googleSuccess}
                     onFailure={googleFailure}
                     cookiePolicy='single_host_origin'
                 />
-                <Button component={Link} to='/auth/signup' size='small' fullWidth variant='contained' color='primary'>Not already sign up ? Sign up here </Button>
+                <Button component={Link} to='/auth/signup' style={{textTransform: 'none', textAlign:'center'}}
+                    size='small' fullWidth variant='contained'
+                    color='primary'>
+                    Not already sign up ? Sign up here
+                </Button>
                 <Button color='secondary' onClick={() => navigate('/')} style={{fontSize:'0.7em', fontWeight:'bold'}} fullWidth >
                     Close
                 </Button>
