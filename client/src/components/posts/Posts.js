@@ -5,7 +5,8 @@ import React from 'react';
 import Post from './Post';
 
 const Posts = () => {
-  const posts = useSelector(state => state.posts); 
+  const posts = useSelector(state => state.posts);
+   
  
   return (
     !posts.length ? <div style={{height: '24rem'}}><CircularProgress /> </div> : (

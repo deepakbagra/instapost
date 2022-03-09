@@ -14,11 +14,13 @@ import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon  from '@material-ui/icons/FavoriteBorderOutlined';
 import EditIcon from '@material-ui/icons/Edit';
 import Skeleton from '@mui/material/Skeleton';
-import ChatIcon from '@material-ui/icons/Chat';
+
+// import ChatIcon from '@material-ui/icons/Chat';
+// import ChatPage from '../chat/ChatPage';
 
 import { deletePost, likePost } from '../../redux/actions/postActions';
 import PostForm from '../postForm/PostForm';
-import ChatPage from '../chat/ChatPage';
+
 
 
 const Post = ({ post }) => {
@@ -143,6 +145,7 @@ const Post = ({ post }) => {
               </>
             </Modal>
           </div>
+          {/* Chat Element
           <div>
             <Button disabled={!user} className={classes.btn} onClick={handleModalOpenChat} >
                 <ChatIcon className={classes.btn} onClick={handleModalOpenChat} />
@@ -154,7 +157,7 @@ const Post = ({ post }) => {
               
             </Modal>
             
-          </div>
+          </div> */}
         </CardActions>
       </Card>
   );

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const url = 'https://deepakwebtech-instapost.herokuapp.com';
 
-const API = axios.create({ baseURL: url, withCredentials: true });
+const API = axios.create({ baseURL: url});
 
 // Axios interceptor for Authorization before making API calls
 

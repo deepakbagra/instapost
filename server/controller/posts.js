@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import Posts from '../models/postSchema.js';
 
-export const getPosts = async (req, res) => {    
-    
+export const getPosts = async (req, res) => {     
+    console.log('getPost')
     try {
         const posts = await Posts.find();        
         

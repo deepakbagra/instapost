@@ -7,7 +7,7 @@ import ChatBox from './ChatBox';
 //const ENDPOINT = 'localhost:9000';
 const ENDPOINT = '//deepakwebtech-instapost.herokuapp.com';
 
-const socket = io.connect(ENDPOINT, { secure: true, reconnection: true, rejectUnauthorized: false });
+const socket = io.connect(ENDPOINT);
   
 socket.on("connect_error", (err) => {
   console.log(`connect_error due to ${err.message}`);

@@ -6,6 +6,7 @@ const router = express.Router();
 
 // routing to http://localhost:9000/posts
 
+
 router.get('/', getPosts);
 router.post('/', auth, createPost);
 router.patch('/:id', auth, updatePost);
