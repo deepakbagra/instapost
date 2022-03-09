@@ -1,6 +1,6 @@
 import { AppBar, IconButton, Paper, Typography, Button, Avatar } from '@material-ui/core';
 import CancelIcon from '@material-ui/icons/Cancel';
-import HomeIcon from '@material-ui/icons/Home';
+import AddIcon from '@material-ui/icons/Add';
 import Modal from '@material-ui/core/Modal';
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -75,15 +75,13 @@ const Header = () => {
         <Paper  comonent='form' autoComplete='off' noValidate className={classes.searchBar}>
             <SearchBar />
         </Paper>
-        <div >
-        <IconButton component={Link} to='/'><HomeIcon style={{fontSize:'1.7rem', paddingRight:'2rem'}}/></IconButton>
-          <Button className={classes.auth} onClick={handleModalOpen} style={{padding: '0.2em'}} >
-            Post Ad
+        <div className={classes.navLink} >                        
+          <Button className={classes.auth} onClick={handleModalOpen} style={{ padding: '0em' }} >
+          {screenSize > 600 ? 'Post Ad' : <AddIcon />} 
           </Button>
           <Modal className={classes.modal} open={modalOpen}  onClose={handleModalClose}>
-          <>
-            <IconButton onClick={handleModalClose} className={classes.xButton} type='submit'><CancelIcon fontSize='medium'/></IconButton>
-            <PostForm />
+          <>            
+            <PostForm closeAd={handleModalClose} />
           </>          
           </Modal>         
           {user ? (

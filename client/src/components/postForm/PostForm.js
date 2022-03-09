@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Paper, TextField, Typography, Button } from '@material-ui/core';
+import { Paper, TextField, Typography, Button, IconButton } from '@material-ui/core';
+import CancelIcon from '@material-ui/icons/Cancel';
 import useStyles from './styles';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { createPost, updatePost } from '../../redux/actions/postActions';
 
-const PostForm = () => {    
+const PostForm = ({ closeEdit, closeAd }) => {    
     const [postData, setPostData] = useState({        
         item: '',
         detail: '',
@@ -56,8 +57,9 @@ const PostForm = () => {
     
     return (
         <Paper className={classes.paper}>
+            <IconButton onClick={currentId ? closeEdit : closeAd } className={classes.xButton} type='submit'><CancelIcon fontSize='medium'/></IconButton>
             <form autoComplete='off' noValidate onSubmit={handleSubmit}>
-                <div >
+                <div >                    
                     <Typography className={classes.header}>{!currentId ? 'Create new Ad' :'Edit your Ad'}</Typography>
                     <TextField className={classes.form} size='small'
                         name='item'

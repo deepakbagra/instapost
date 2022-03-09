@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import Modal from '@material-ui/core/Modal';
 import DeleteIcon from '@material-ui/icons/Delete';
-import CancelIcon from '@material-ui/icons/Cancel';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import FavoriteOutlinedIcon from '@material-ui/icons/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon  from '@material-ui/icons/FavoriteBorderOutlined';
@@ -139,9 +138,8 @@ const Post = ({ post }) => {
               </Button>
             
             <Modal className={classes.modal} open={modalOpenEdit} onClose={handleModalCloseEdit}>
-              <>
-              <IconButton onClick={handleModalCloseEdit} className={classes.xButton} type='submit'><CancelIcon fontSize='large'/></IconButton>
-                <PostForm />
+              <>             
+                <PostForm closeEdit={handleModalCloseEdit} />
               </>
             </Modal>
           </div>

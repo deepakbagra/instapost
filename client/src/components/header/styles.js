@@ -121,20 +121,31 @@ export default makeStyles((theme) => ({
             left: '95%',
         },
     },
+    navLink: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',       
+    },
     auth: {
         fontSize: '0.85rem',        
         textTransform: 'none',
         margin: '0em',
-        fontWeight: 'bold',
-        marginRight: '1rem',
+        fontWeight: 'bold',        
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '0.7rem',
+            marginRight: '0rem',
+        },
         [theme.breakpoints.between('xs', 'sm')]: {
             fontSize: '0.8rem',
+            marginRight: '0rem',
         },
         [theme.breakpoints.between('sm', 'md')]: {
             fontSize: '0.9rem',
+            marginRight: '0.8rem',
         },
         [theme.breakpoints.between('md', 'lg')]: {
             fontSize: '1rem',
+            marginRight: '1rem',
         },
     },
     authMenu: {
@@ -160,10 +171,10 @@ export default makeStyles((theme) => ({
     },
     brand: {
         fontSize: '1.2rem',
-        fontWeight: 'bold',
-        marginLeft: '0.4rem',
+        fontWeight: 'bold',       
         [theme.breakpoints.down('xs')]: {
-            fontSize: '0.8rem',            
+            fontSize: '0.8rem',
+            margin: '0.2em',
         }
     }
 }))

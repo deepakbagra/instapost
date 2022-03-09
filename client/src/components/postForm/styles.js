@@ -34,7 +34,12 @@ export default makeStyles((theme) => ({
     button: {
         marginTop: '4%',
         borderRadius: '1em'
-    }
+    },
+    xButton: {
+        position: 'absolute',
+        right: '0em',        
+        color: 'red',
+    },
     
    
 }))
