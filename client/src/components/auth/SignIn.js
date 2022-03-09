@@ -119,8 +119,8 @@ const SignIn = () => {
                     cookiePolicy='single_host_origin'
                 />
                 <Button component={Link} to='/auth/signup' size='small' fullWidth variant='contained' color='primary'>Not already sign up ? Sign up here </Button>
-                <Button onClick={() => navigate('/')} style={{fontSize:'0.7em', fontWeight:'bold'}} fullWidth >
-                    close
+                <Button color='secondary' onClick={() => navigate('/')} style={{fontSize:'0.7em', fontWeight:'bold'}} fullWidth >
+                    Close
                 </Button>
                 
                 
