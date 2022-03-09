@@ -75,8 +75,8 @@ const Header = () => {
         <Paper  comonent='form' autoComplete='off' noValidate className={classes.searchBar}>
             <SearchBar />
         </Paper>
-        <div className={classes.navLinks}>
-        <IconButton component={Link} to='/'><HomeIcon style={{fontSize:'1.7rem'}}/></IconButton>
+        <div >
+        <IconButton component={Link} to='/'><HomeIcon style={{fontSize:'1.7rem', paddingRight:'2rem'}}/></IconButton>
           <Button className={classes.auth} onClick={handleModalOpen} style={{padding: '0.2em'}} >
             Post Ad
           </Button>
@@ -97,8 +97,7 @@ const Header = () => {
             ) :  (screenSize > 600 ? 
               <> 
                 <Button className={classes.auth} component={Link} to='/auth/signin' variant='text' >Sign In</Button>
-                <Typography className={classes.divider}>|</Typography>
-                <Button className={classes.auth} component={Link} to='/auth/signup' variant='text' >Sign Up</Button>
+                
               </> :  <LoginMenu />
             )
           }

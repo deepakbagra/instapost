@@ -99,11 +99,7 @@ export default makeStyles((theme) => ({
             fontSize:'1.2rem',
         },
     },
-    navLinks: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        display: 'flex',        
-    },
+    
     modal: {
        backgroundColor: 'rgba(0,0,0,0.7)',
     },
@@ -130,6 +126,7 @@ export default makeStyles((theme) => ({
         textTransform: 'none',
         margin: '0em',
         fontWeight: 'bold',
+        marginRight: '1rem',
         [theme.breakpoints.between('xs', 'sm')]: {
             fontSize: '0.8rem',
         },
