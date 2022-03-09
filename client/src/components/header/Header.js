@@ -1,5 +1,4 @@
-import { AppBar, IconButton, Paper, Typography, Button, Avatar } from '@material-ui/core';
-import CancelIcon from '@material-ui/icons/Cancel';
+import { AppBar, Paper, Typography, Button, Avatar } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Modal from '@material-ui/core/Modal';
 import React, { useState, useEffect, useCallback } from 'react';

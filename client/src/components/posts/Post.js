@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {
   Card, CardActions, CardContent,
-  CardMedia, Button, Typography, IconButton
+  CardMedia, Button, Typography,
 } from '@material-ui/core';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
