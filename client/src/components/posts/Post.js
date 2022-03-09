@@ -27,7 +27,7 @@ const Post = ({ post }) => {
   
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpenEdit, setModalOpenEdit] = useState(false);
-  const [modalOpenChat, setModalOpenChat] = useState(false);  
+  //const [modalOpenChat, setModalOpenChat] = useState(false);  
 
   const user = JSON.parse(localStorage.getItem('profile'));  
  
@@ -76,8 +76,8 @@ const Post = ({ post }) => {
   const handleModalCloseEdit = () => { setModalOpenEdit(false) }; 
   
   //Modal toggle settings for Chat tag
-  const handleModalOpenChat = () => { setModalOpenChat(true) };
-  const handleModalCloseChat = () => { setModalOpenChat(false) }; 
+  //const handleModalOpenChat = () => { setModalOpenChat(true) };
+  //const handleModalCloseChat = () => { setModalOpenChat(false) }; 
   
   const handleEditChange = () => {
     dispatch({ type: 'CURRENT_ID', payload: post._id})
