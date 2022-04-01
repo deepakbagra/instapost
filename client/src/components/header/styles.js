@@ -5,10 +5,11 @@ export default makeStyles((theme) => ({
     appBar: {
         marginBottom: '2rem',
         display: 'flex',
+        background: '#424242',        
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: '4rem',
+        height: '5rem',
         [theme.breakpoints.between('xs', 'sm')]: {
             height: '4rem',           
         },
@@ -16,17 +17,17 @@ export default makeStyles((theme) => ({
             height: '5rem',           
         },
         [theme.breakpoints.between('md', 'lg')]: {
-            height: '6rem',
+            height: '5rem',
         }
     },
     searchBar: {
         height: '1.8rem',
-        backgroundColor: '#f9fbe7',
-        borderRadius: '0.75em',
+        backgroundColor: '#f9fbe7',        
         display: 'flex',
         alignItems: 'center',
         [theme.breakpoints.down('xs')]: {
             height: '1.3rem',
+            width: '5.5rem',
         },
         [theme.breakpoints.between('xs', 'sm')]: {
             height: '1.9rem',           
@@ -35,7 +36,7 @@ export default makeStyles((theme) => ({
             height: '2rem',           
         },
         [theme.breakpoints.between('md', 'lg')]: {
-            height: '2.2rem',                      
+            height: '2.2rem',                                 
         }
     },
     searchInput: {
@@ -47,7 +48,7 @@ export default makeStyles((theme) => ({
             marginLeft: '0.1rem'
         },
         [theme.breakpoints.between('xs', 'sm')]: {
-            fontSize: '0.5rem',
+            fontSize: '0.7rem',
             marginLeft: '0.2rem'          
         },
         [theme.breakpoints.between('sm', 'md')]: {
@@ -130,7 +131,7 @@ export default makeStyles((theme) => ({
         fontSize: '0.85rem',        
         textTransform: 'none',
         margin: '0em',
-        fontWeight: 'bold',        
+        color: 'white',        
         [theme.breakpoints.down('xs')]: {
             fontSize: '0.7rem',
             marginRight: '0rem',
@@ -171,7 +172,7 @@ export default makeStyles((theme) => ({
     },
     brand: {
         fontSize: '1.2rem',
-        fontWeight: 'bold',       
+        color: 'white',
         [theme.breakpoints.down('xs')]: {
             fontSize: '0.8rem',
             margin: '0.2em',

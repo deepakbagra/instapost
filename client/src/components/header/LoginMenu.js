@@ -56,7 +56,7 @@ export default function LoginMenu() {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          <LockOpenIcon style={{ fontSize: '1.2rem', padding:'0' }} />
+          <LockOpenIcon style={{ fontSize: '1.2rem', color: 'white', padding:'0' }} />
         </Button>
         <Popper
           open={open}
